@@ -1,0 +1,17 @@
+body {
+    max-width: 750px;
+    margin: 125px auto;
+    text-align: center;
+    color: #424e64;
+}
+
+h1 {
+    color: #4699c2;
+}  
+
+
+form {
+    background-color: #dce6ef;
+    padding: 30px;
+    border-radius: 25px;
+}  
