@@ -41,7 +41,7 @@ error_reporting(E_ALL);
     <br>
     <br>
 
-    <input name="submit" type="submit" value="Calculate" />
+    <input name="submit" type="submit" value="Calculate" class="submit" />
 
     <br>
     <br>
@@ -59,17 +59,17 @@ $japaneseyentoeuro = 0.00788118;
         switch ($currency) {
             case 'taiwandollar':
             $toeuros = round(($amount * $taiwandollartoeuro), 2);
-            echo $amount . " in TWD will get you " . $toeuros . " euros.";
+            echo $amount . " in TWD will get you " . $toeuros . " Euros.";
             break;
             
             case 'bath':
             $toeuros = round(($amount * $thaibathtoeuro), 2);
-            echo $amount . " in Thai Bath will get you " . $toeuros . " euros.";
+            echo $amount . " in Thai Bath will get you " . $toeuros . " Euros.";
             break;
 
             case 'japaneseyen':
             $toeuros = round(($amount * $japaneseyentoeuro), 2);
-            echo $amount . " in JPY will get you " . $toeuros . " euros.";
+            echo $amount . " in JPY will get you " . $toeuros . " Euros.";
             break;
 
             default:
