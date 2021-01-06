@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 
 <form method="post" name="form">
 
-    <h1> Convert Your Money to Euros 💸 </h1>
+    <h1> 💸 Convert Your Money 💸 </h1>
 
     <label for="amount">Amount:</label><br>
     <input type="number" id="amount" name="amount" placeholder="1" min="0"/>
@@ -28,6 +28,7 @@ error_reporting(E_ALL);
         <option value="bath">Thai Bath 🇹🇭</option>
         <option value="taiwandollar"> New Taiwan Dollar 🇹🇼</option>
         <option value="japaneseyen"> Japanese Yen 🇯🇵</option>
+        <option value="euro">Euro 🇪🇺</option>
     </select>
 
     <br>
@@ -36,6 +37,9 @@ error_reporting(E_ALL);
     <label for="currency2">To:</label><br>
     <select name="currency2" id="currency2">
         <option value="euro">Euro 🇪🇺</option>
+        <option value="bath">Thai Bath 🇹🇭</option>
+        <option value="taiwandollar"> New Taiwan Dollar 🇹🇼</option>
+        <option value="japaneseyen"> Japanese Yen 🇯🇵</option>
     </select>
 
     <br>
@@ -47,35 +51,75 @@ error_reporting(E_ALL);
     <br>
 
 <?php
-$taiwandollartoeuro = 0.0289540;
-$thaibathtoeuro = 0.0271211;
-$japaneseyentoeuro = 0.00788118;
+
+$taiwandollar = 34.4885;
+$thaibath = 36.8488;
+$japaneseyen = 127.060;
+$euro = 1;
+$currencyfrom = "";
+$currencyto = "";
     
     if (isset($_POST["submit"])) { 
 
         $amount = $_POST["amount"];
-        $currency = $_POST["currency1"];
+        $currency1 = $_POST["currency1"];
+        $currency2 = $_POST["currency2"];
 
-        switch ($currency) {
+        switch ($currency1) {
             case 'taiwandollar':
-            $toeuros = round(($amount * $taiwandollartoeuro), 2);
-            echo $amount . " in TWD will get you " . $toeuros . " Euros.";
-            break;
-            
-            case 'bath':
-            $toeuros = round(($amount * $thaibathtoeuro), 2);
-            echo $amount . " in Thai Bath will get you " . $toeuros . " Euros.";
+                $currency1 = $taiwandollar;
+                $currencyfrom = "New Taiwanese Dollar";
             break;
 
+            case 'bath':
+                $currency1 = $thaibath;
+                $currencyfrom = "Thai Baht";
+            break;
+                
             case 'japaneseyen':
-            $toeuros = round(($amount * $japaneseyentoeuro), 2);
-            echo $amount . " in JPY will get you " . $toeuros . " Euros.";
+                $currency1 = $japaneseyen;
+                $currencyfrom = "Japenese Yen";
+            break;
+
+            case 'euro':
+                $currency1 = $euro;
+                $currencyfrom = "euro";
             break;
 
             default:
             echo "Please submit your amount";
             break;
         }
+
+        switch ($currency2) {
+            case 'taiwandollar':
+                $currency2 = $taiwandollar;
+                $currencyto = "New Taiwanese Dollar";
+            break;
+
+            case 'bath':
+                $currency2 = $thaibath;
+                $currencyto = "Thai Baht";
+            break;
+                
+            case 'japaneseyen':
+                $currency2 = $japaneseyen;
+                $currencyto = "Japanese Yen";
+            break;
+
+            case 'euro':
+                $currency2 = $euro;
+                $currencyto = "euro";
+            break;
+
+            default:
+            echo "Please submit your amount";
+            break;
+        }
+
+        $calculation = round(($currency2 / $currency1) * $amount);
+
+        echo $amount . " " . $currencyfrom . " will get you about <b>" . $calculation . "</b> " . $currencyto . ".";
     }
 ?> 
 
