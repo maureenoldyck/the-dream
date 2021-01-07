@@ -17,6 +17,12 @@ $taiwandollar = 34.4885;
 $thaibath = 36.8488;
 $japaneseyen = 127.060;
 $euro = 1;
+$currency1 = "1";
+$currency2 = "1";
+$currencyfrom = "euro";
+$currencyto = "euro";
+$amount = "1";
+$calculation = "1";
     
     if (isset($_POST["submit"])) { 
 
