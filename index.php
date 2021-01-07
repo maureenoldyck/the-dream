@@ -12,45 +12,6 @@
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
-?>
-
-<form method="post" name="form">
-
-    <h1> 💸 Convert Your Money 💸 </h1>
-
-    <label for="amount">Amount:</label><br>
-    <input type="number" id="amount" name="amount" placeholder="1" min="0"/>
-    <br>
-    <br>
-
-    <label for="currency1">From:</label><br>
-    <select name="currency1" id="currency1">
-        <option value="bath">Thai Bath 🇹🇭</option>
-        <option value="taiwandollar"> New Taiwan Dollar 🇹🇼</option>
-        <option value="japaneseyen"> Japanese Yen 🇯🇵</option>
-        <option value="euro">Euro 🇪🇺</option>
-    </select>
-
-    <br>
-    <br>
-
-    <label for="currency2">To:</label><br>
-    <select name="currency2" id="currency2">
-        <option value="euro">Euro 🇪🇺</option>
-        <option value="bath">Thai Bath 🇹🇭</option>
-        <option value="taiwandollar"> New Taiwan Dollar 🇹🇼</option>
-        <option value="japaneseyen"> Japanese Yen 🇯🇵</option>
-    </select>
-
-    <br>
-    <br>
-
-    <input name="submit" type="submit" value="Calculate" class="submit" />
-
-    <br>
-    <br>
-
-<?php
 
 $taiwandollar = 34.4885;
 $thaibath = 36.8488;
@@ -116,10 +77,48 @@ $euro = 1;
         }
 
         $calculation = round(($currency2 / $currency1) * $amount);
-
-        echo $amount . " " . $currencyfrom . " will get you about <b>" . $calculation . "</b> " . $currencyto . ".";
     }
-?> 
+?>
+
+<form method="post" name="form">
+
+    <h1> 💸 Convert Your Money 💸 </h1>
+
+    <label for="amount">Amount:</label><br>
+    <input type="number" id="amount" name="amount" placeholder="1" min="0"/>
+    <br>
+    <br>
+
+    <label for="currency1">From:</label><br>
+    <select name="currency1" id="currency1">
+        <option value="bath">Thai Bath 🇹🇭</option>
+        <option value="taiwandollar"> New Taiwan Dollar 🇹🇼</option>
+        <option value="japaneseyen"> Japanese Yen 🇯🇵</option>
+        <option value="euro">Euro 🇪🇺</option>
+    </select>
+
+    <br>
+    <br>
+
+    <label for="currency2">To:</label><br>
+    <select name="currency2" id="currency2">
+        <option value="euro">Euro 🇪🇺</option>
+        <option value="bath">Thai Bath 🇹🇭</option>
+        <option value="taiwandollar"> New Taiwan Dollar 🇹🇼</option>
+        <option value="japaneseyen"> Japanese Yen 🇯🇵</option>
+    </select>
+
+    <br>
+    <br>
+
+    <input name="submit" type="submit" value="Calculate" class="submit" />
+
+    <br>
+    <br>
+
+    <?php
+        echo $amount . " " . $currencyfrom . " will get you about <b>" . $calculation . "</b> " . $currencyto . ".";
+    ?> 
 
 </form>
 </body>
