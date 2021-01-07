@@ -13,10 +13,12 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
+// Currencies equal to €1
 $taiwandollar = 34.4885;
 $thaibath = 36.8488;
 $japaneseyen = 127.060;
 $euro = 1;
+// Define variables 
 $currency1 = "1";
 $currency2 = "1";
 $currencyfrom = "euro";
